@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffefe2" />
+  <title>Cozy Foodie</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">уютный рандомайзер еды</p>
+        <h1>Cozy Foodie</h1>
+        <p>Нажми кнопку — и приложение решит, что готовить. Без экзистенциального кризиса у холодильника.</p>
+      </div>
+      <button id="randomBtn" class="random">🎲 Случайный рецепт</button>
+    </section>
+
+    <section class="filters" id="filters"></section>
+    <section class="grid" id="recipeGrid"></section>
+  </main>
+
+  <dialog id="recipeDialog">
+    <button class="close" id="closeDialog">×</button>
+    <article id="recipeDetail"></article>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
