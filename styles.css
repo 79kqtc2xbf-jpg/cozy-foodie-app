@@ -1,4 +1,3 @@
-Полностью замени styles.css на это:
 
 body {
   margin: 0;
@@ -136,56 +135,45 @@ body {
   background: #0f0f0f;
   z-index: 999;
   overflow-y: auto;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
 }
 
 .modal-content {
-  padding: 20px;
+  padding: 18px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .modal-image {
   width: 100%;
-  border-radius: 24px;
-  aspect-ratio: 1/1;
+  max-height: 220px;
+  border-radius: 22px;
+  aspect-ratio: 16/9;
   object-fit: cover;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   background: #1f1f1f;
 }
 
-.close-btn {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: none;
-  background: rgba(30,30,30,0.9);
-  color: white;
-  font-size: 20px;
-  z-index: 1000;
-}
-
 .modal-title {
-  font-size: 42px;
-  line-height: 1;
+  font-size: 30px;
+  line-height: 1.05;
   font-weight: 900;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .modal-section-title {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 800;
-  margin-top: 34px;
+  margin-top: 26px;
 }
 
 .ingredients-list li,
 .steps-list li {
-  margin-bottom: 14px;
-  line-height: 1.45;
-  font-size: 20px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+  font-size: 17px;
 }
 
 .steps-list li {
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
