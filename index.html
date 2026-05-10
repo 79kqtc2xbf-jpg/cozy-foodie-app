@@ -1,15 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cozy Foodie</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles-v7.css?v=7" />
+  <link rel="stylesheet" href="styles-v8.css" />
+  <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
-  <main id="app"></main>
-  <nav class="bottom-nav" id="bottomNav"></nav>
-  <script src="app-v7.js?v=7"></script>
+  <div id="onboarding" class="onboarding hidden">
+    <div class="on-card">
+      <div class="eyebrow">Cozy Foodie</div>
+      <h2>Что ты любишь?</h2>
+      <p class="muted">Выбери пару вариантов, чтобы приложение советовало не еду “для кого-то”, а еду для тебя.</p>
+      <div id="prefGrid" class="pref-grid"></div>
+      <button id="finishOnboarding" class="primary full">Начать готовить</button>
+    </div>
+  </div>
+
+  <main class="app">
+    <section class="hero">
+      <div class="eyebrow">COZY FOODIE</div>
+      <h1>Что едим?</h1>
+      <p>Рецепты с граммовками, огнём, юмором и без кулинарного снобизма.</p>
+      <button id="randomBtn" class="random">🎲 Мне лень выбирать</button>
+    </section>
+
+    <section class="mood-panel">
+      <div>
+        <h2>Как ты себя чувствуешь?</h2>
+        <p class="muted">Я подберу рецепт не рандомно, а по настроению.</p>
+      </div>
+      <div id="moodButtons" class="mood-buttons"></div>
+      <div id="moodResult" class="mood-result hidden"></div>
+    </section>
+
+    <section class="top-actions">
+      <input id="searchInput" class="search" placeholder="Поиск: курица, паста, сыр, быстро..." />
+    </section>
+
+    <section id="categoryRow" class="category-row"></section>
+
+    <section id="homeSection">
+      <div class="section-head">
+        <h2>Рецепты</h2>
+        <p id="resultsNote" class="results-note"></p>
+      </div>
+      <div id="recipesGrid" class="grid"></div>
+    </section>
+
+    <section id="favoritesSection" class="section hidden">
+      <h2>❤️ Избранное</h2>
+      <p class="muted">Твои saved-рецепты. Потому что память — штука ненадежная.</p>
+      <div id="favoritesGrid" class="grid"></div>
+    </section>
+
+    <section id="fridgeSection" class="section hidden">
+      <h2>🧊 Что есть дома?</h2>
+      <p class="muted">Напиши ингредиенты через запятую. Например: яйца, сыр, курица.</p>
+      <textarea id="fridgeInput" class="textarea" placeholder="яйца, сыр, бекон"></textarea>
+      <button id="fridgeBtn" class="primary">Найти рецепты</button>
+      <div id="fridgeResults" class="grid fridge-results"></div>
+    </section>
+
+    <section id="shoppingSection" class="section hidden">
+      <h2>🛒 Список покупок</h2>
+      <div class="manual-row">
+        <input id="manualShopInput" class="manual-input" placeholder="Добавить: молоко, яйца..." />
+        <button id="manualShopBtn" class="secondary">+</button>
+      </div>
+      <div id="shoppingList" class="shopping-list"></div>
+      <button id="clearShoppingBtn" class="ghost">Очистить список</button>
+    </section>
+
+    <section id="addSection" class="section hidden">
+      <h2>➕ Добавить рецепт</h2>
+      <p class="muted">Пока рецепт сохраняется на твоём устройстве. Потом сделаем аккаунты и облако.</p>
+      <div class="form">
+        <input id="newTitle" placeholder="Название рецепта" />
+        <input id="newCategories" placeholder="Категории через запятую: ужин, курица, быстро" />
+        <input id="newTime" placeholder="Время: 25 мин" />
+        <input id="newImage" placeholder="Картинка URL или оставь пустым" />
+        <textarea id="newIngredients" placeholder="Ингредиенты, каждый с новой строки"></textarea>
+        <textarea id="newSteps" placeholder="Шаги, каждый с новой строки"></textarea>
+        <button id="addRecipeBtn" class="primary">Добавить</button>
+      </div>
+
+      <div class="import-box">
+        <h3>Импорт JSON</h3>
+        <p class="small">Вставь массив рецептов и нажми импорт.</p>
+        <textarea id="importJson" class="textarea" placeholder='[{"title":"..."}]'></textarea>
+        <button id="importBtn" class="secondary">Импортировать</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal">
+    <button id="closeModal" class="close">×</button>
+    <div id="modalInner" class="modal-card"></div>
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-tab="home"><span>🏠</span>Главная</button>
+    <button class="nav-btn" data-tab="favorites"><span>❤️</span>Любимое</button>
+    <button class="nav-btn" data-tab="fridge"><span>🧊</span>Что дома</button>
+    <button class="nav-btn" data-tab="shopping"><span>🛒</span>Список</button>
+    <button class="nav-btn" data-tab="add"><span>➕</span>Добавить</button>
+  </nav>
+
+  <script src="app-v8.js"></script>
 </body>
 </html>

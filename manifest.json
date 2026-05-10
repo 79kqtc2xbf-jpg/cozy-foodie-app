@@ -1,10 +1,10 @@
 {
   "name": "Cozy Foodie",
-  "short_name": "Cozy",
+  "short_name": "Foodie",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0d0d0f",
-  "theme_color": "#0d0d0f",
+  "background_color": "#0b0b0d",
+  "theme_color": "#0b0b0d",
   "icons": [
     {
       "src": "icon-192.png",
@@ -16,6 +16,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "description": "Уютный рандомайзер еды с рецептами, шутками и списком покупок"
+  ]
 }
