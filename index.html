@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cozy Foodie</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles-v8.css" />
+  <link rel="stylesheet" href="styles-v10.css" />
   <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
@@ -36,6 +36,31 @@
       <div id="moodResult" class="mood-result hidden"></div>
     </section>
 
+    <section id="dailyPanel" class="daily-panel"></section>
+
+    <section id="smartFilters" class="smart-filters">
+      <button class="smart active" data-smart="all">✨ все</button>
+      <button class="smart" data-smart="fast">⚡ до 20 мин</button>
+      <button class="smart" data-smart="protein">💪 белок</button>
+      <button class="smart" data-smart="budget">💸 бюджет</button>
+      <button class="smart" data-smart="comfort">🌙 уют</button>
+    </section>
+
+    <section id="recentPanel" class="section compact-section hidden">
+      <div class="section-head">
+        <h2>👀 Недавно смотрела</h2>
+      </div>
+      <div id="recentGrid" class="mini-row"></div>
+    </section>
+
+    <section id="trendingPanel" class="section compact-section">
+      <div class="section-head">
+        <h2>🔥 Cook again</h2>
+        <p class="muted">То, к чему рука уже тянулась</p>
+      </div>
+      <div id="trendingGrid" class="mini-row"></div>
+    </section>
+
     <section class="top-actions">
       <input id="searchInput" class="search" placeholder="Поиск: курица, паста, сыр, быстро..." />
     </section>
@@ -57,7 +82,7 @@
     </section>
 
     <section id="fridgeSection" class="section hidden">
-      <h2>🧊 Что есть дома?</h2>
+      <h2><span class="fridge-title-icon">▥</span> Что есть дома?</h2>
       <p class="muted">Напиши ингредиенты через запятую. Например: яйца, сыр, курица.</p>
       <textarea id="fridgeInput" class="textarea" placeholder="яйца, сыр, бекон"></textarea>
       <button id="fridgeBtn" class="primary">Найти рецепты</button>
@@ -68,7 +93,7 @@
       <h2>🛒 Список покупок</h2>
       <div class="manual-row">
         <input id="manualShopInput" class="manual-input" placeholder="Добавить: молоко, яйца..." />
-        <button id="manualShopBtn" class="secondary">+</button>
+        <button id="manualShopBtn" class="secondary add-disabled" disabled>+</button>
       </div>
       <div id="shoppingList" class="shopping-list"></div>
       <button id="clearShoppingBtn" class="ghost">Очистить список</button>
@@ -104,11 +129,11 @@
   <nav class="bottom-nav">
     <button class="nav-btn active" data-tab="home"><span>🏠</span>Главная</button>
     <button class="nav-btn" data-tab="favorites"><span>❤️</span>Любимое</button>
-    <button class="nav-btn" data-tab="fridge"><span>🧊</span>Что дома</button>
+    <button class="nav-btn" data-tab="fridge"><span class="fridge-icon">▥</span>Что дома</button>
     <button class="nav-btn" data-tab="shopping"><span>🛒</span>Список</button>
     <button class="nav-btn" data-tab="add"><span>➕</span>Добавить</button>
   </nav>
 
-  <script src="app-v8.js"></script>
+  <script src="app-v10.js"></script>
 </body>
 </html>
