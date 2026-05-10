@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cozy Foodie</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles-v10.css" />
+  <link rel="stylesheet" href="styles-v11.css" />
   <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
@@ -38,27 +38,22 @@
 
     <section id="dailyPanel" class="daily-panel"></section>
 
+    <section class="craving-panel">
+      <h2>💭 Чего хочется?</h2>
+      <p class="muted">Пиши по-человечески: суп, сладкое, сырное, лёгкое, что-то с курицей, без мяса.</p>
+      <div class="craving-row">
+        <input id="cravingInput" class="search" placeholder="например: суп или сладкое" />
+        <button id="cravingBtn" class="secondary">Найти</button>
+      </div>
+      <div id="cravingResult" class="mini-row"></div>
+    </section>
+
     <section id="smartFilters" class="smart-filters">
       <button class="smart active" data-smart="all">✨ все</button>
       <button class="smart" data-smart="fast">⚡ до 20 мин</button>
       <button class="smart" data-smart="protein">💪 белок</button>
       <button class="smart" data-smart="budget">💸 бюджет</button>
       <button class="smart" data-smart="comfort">🌙 уют</button>
-    </section>
-
-    <section id="recentPanel" class="section compact-section hidden">
-      <div class="section-head">
-        <h2>👀 Недавно смотрела</h2>
-      </div>
-      <div id="recentGrid" class="mini-row"></div>
-    </section>
-
-    <section id="trendingPanel" class="section compact-section">
-      <div class="section-head">
-        <h2>🔥 Cook again</h2>
-        <p class="muted">То, к чему рука уже тянулась</p>
-      </div>
-      <div id="trendingGrid" class="mini-row"></div>
     </section>
 
     <section class="top-actions">
@@ -79,6 +74,13 @@
       <h2>❤️ Избранное</h2>
       <p class="muted">Твои saved-рецепты. Потому что память — штука ненадежная.</p>
       <div id="favoritesGrid" class="grid"></div>
+
+      <div id="recentPanel" class="compact-section fav-recent">
+        <div class="section-head">
+          <h2>👀 Недавно смотрела</h2>
+        </div>
+        <div id="recentGrid" class="mini-row"></div>
+      </div>
     </section>
 
     <section id="fridgeSection" class="section hidden">
@@ -87,6 +89,12 @@
       <textarea id="fridgeInput" class="textarea" placeholder="яйца, сыр, бекон"></textarea>
       <button id="fridgeBtn" class="primary">Найти рецепты</button>
       <div id="fridgeResults" class="grid fridge-results"></div>
+    </section>
+
+    <section id="cookAgainSection" class="section hidden">
+      <h2>🔥 Готовить снова</h2>
+      <p class="muted">Рецепты, которые ты чаще открывала. Приложение уже подозревает твои слабости.</p>
+      <div id="trendingGrid" class="grid"></div>
     </section>
 
     <section id="shoppingSection" class="section hidden">
@@ -129,11 +137,12 @@
   <nav class="bottom-nav">
     <button class="nav-btn active" data-tab="home"><span>🏠</span>Главная</button>
     <button class="nav-btn" data-tab="favorites"><span>❤️</span>Любимое</button>
+    <button class="nav-btn" data-tab="cook"><span>🔥</span>Снова</button>
     <button class="nav-btn" data-tab="fridge"><span class="fridge-icon">▥</span>Что дома</button>
     <button class="nav-btn" data-tab="shopping"><span>🛒</span>Список</button>
     <button class="nav-btn" data-tab="add"><span>➕</span>Добавить</button>
   </nav>
 
-  <script src="app-v10.js"></script>
+  <script src="app-v11.js"></script>
 </body>
 </html>
