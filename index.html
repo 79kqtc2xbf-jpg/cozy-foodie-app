@@ -9,20 +9,82 @@
   <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
-  <div id="onboarding" class="onboarding hidden">
-    <div class="on-card">
-      <div class="eyebrow">Cozy Foodie</div>
+  <main class="app">
+    <section class="hero">
+      <div class="eyebrow">COZY FOODIE</div>
+      <h1>Что едим?</h1>
+      <p>Рецепты с граммовками, огнём, юмором и без кулинарного снобизма.</p>
+      <button id="randomBtn" class="random">🎲 Мне лень выбирать</button>
+    </section>
+
+    <section class="mood-panel">
+      <div>
+        <h2>Как ты себя чувствуешь?</h2>
+        <p class="muted">Я подберу рецепт не рандомно, а по настроению.</p>
+      </div>
+      <div id="moodButtons" class="mood-buttons"></div>
+      <div id="moodResult" class="mood-result hidden"></div>
+    </section>
+
+    <section id="dailyPanel" class="daily-panel"></section>
+
+    <section class="craving-panel">
+      <h2>💭 Чего хочется?</h2>
+      <p class="muted">Например: суп, сладкое, сырное, лёгкое, без мяса.</p>
+      <div class="craving-row">
+        <input id="cravingInput" class="search" placeholder="например: суп или сладкое" />
+        <button id="cravingBtn" class="secondary">Найти</button>
+      </div>
+      <div id="cravingResult" class="mini-row"></div>
+    </section>
+
+    <section id="smartFilters" class="smart-filters">
+      <button class="smart active" data-smart="all">✨ все</button>
+      <button class="smart" data-smart="fast">⚡ до 20 мин</button>
+      <button class="smart" data-smart="protein">💪 белок</button>
+      <button class="smart" data-smart="budget">💸 бюджет</button>
+      <button class="smart" data-smart="comfort">🌙 уют</button>
+    </section>
+
+    <section class="top-actions">
+      <input id="searchInput" class="search" placeholder="Поиск: курица, паста, сыр, быстро..." />
+    </section>
+
+    <section id="categoryRow" class="category-row"></section>
+
+    <section id="homeSection">
+      <div class="section-head">
+        <h2>Рецепты</h2>
+        <p id="resultsNote" class="results-note"></p>
+      </div>
+      <div id="recipesGrid" class="grid"></div>
+    </section>
+
+    <section id="favoritesSection" class="section hidden">
+      <h2>❤️ Избранное</h2>
+      <p class="muted">Твои saved-рецепты.</p>
+      <div id="favoritesGrid" class="grid"></div>
+
+      <div id="recentPanel" class="compact-section fav-recent">
+        <div class="section-head">
+          <h2>👀 Недавно смотрела</h2>
+        </div>
+        <div id="recentGrid" class="mini-row"></div>
+      </div>
+    </section>
+
+    <section id="cookAgainSection" class="section hidden">
+      <h2>🔥 Готовить снова</h2>
+      <p class="muted">Рецепты, которые ты чаще открывала.</p>
+      <div id="trendingGrid" class="grid"></div>
+    </section>
+
+    <section id="fridgeSection" class="section hidden">
       <h2>🥕 Что есть дома?</h2>
       <p class="muted">Напиши ингредиенты через запятую. Например: яйца, сыр, курица.</p>
       <textarea id="fridgeInput" class="textarea" placeholder="яйца, сыр, бекон"></textarea>
       <button id="fridgeBtn" class="primary">Найти рецепты</button>
       <div id="fridgeResults" class="grid fridge-results"></div>
-    </section>
-
-    <section id="cookAgainSection" class="section hidden">
-      <h2>🔥 Готовить снова</h2>
-      <p class="muted">Рецепты, которые ты чаще открывала. Приложение уже подозревает твои слабости.</p>
-      <div id="trendingGrid" class="grid"></div>
     </section>
 
     <section id="shoppingSection" class="section hidden">
@@ -37,7 +99,7 @@
 
     <section id="addSection" class="section hidden">
       <h2>➕ Добавить рецепт</h2>
-      <p class="muted">Пока рецепт сохраняется на твоём устройстве. Потом сделаем аккаунты и облако.</p>
+      <p class="muted">Пока рецепт сохраняется на твоём устройстве.</p>
       <div class="form">
         <input id="newTitle" placeholder="Название рецепта" />
         <input id="newCategories" placeholder="Категории через запятую: ужин, курица, быстро" />
@@ -46,13 +108,6 @@
         <textarea id="newIngredients" placeholder="Ингредиенты, каждый с новой строки"></textarea>
         <textarea id="newSteps" placeholder="Шаги, каждый с новой строки"></textarea>
         <button id="addRecipeBtn" class="primary">Добавить</button>
-      </div>
-
-      <div class="import-box">
-        <h3>Импорт JSON</h3>
-        <p class="small">Вставь массив рецептов и нажми импорт.</p>
-        <textarea id="importJson" class="textarea" placeholder='[{"title":"..."}]'></textarea>
-        <button id="importBtn" class="secondary">Импортировать</button>
       </div>
     </section>
   </main>
