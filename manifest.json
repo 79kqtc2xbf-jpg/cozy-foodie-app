@@ -1,1 +1,9 @@
-{"name":"Cozy Foodie","short_name":"Foodie","start_url":"./index.html","display":"standalone","background_color":"#fff8f1","theme_color":"#ffefe2","icons":[]}
+{
+  "name": "Cozy Foodie",
+  "short_name": "Cozy Foodie",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0b0d",
+  "theme_color": "#0b0b0d",
+  "icons": []
+}
