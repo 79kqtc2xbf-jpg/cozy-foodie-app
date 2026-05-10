@@ -79,7 +79,7 @@ function moodSuggestion() {
 }
 
 function nav() {
-  const items = [['home','🏠','Главная'],['fav','❤️','Избранное'],['fridge','🥕','Дома'],['shop','🛒','Список'],['add','➕','Добавить']];
+  const items = [['home','🏠','Главная'],['fav','❤️','Избранное'],['fridge','🧺','Дома'],['shop','🛒','Список'],['add','➕','Добавить']];
   bottomNav.innerHTML = items.map(i => `<button class="nav-btn ${tab===i[0]?'active':''}" onclick="tab='${i[0]}';render()"><span>${i[1]}</span>${i[2]}</button>`).join('');
 }
 function render() {
