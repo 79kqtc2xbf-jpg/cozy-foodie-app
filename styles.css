@@ -92,3 +92,131 @@
     padding-bottom: 2px;
   }
 }
+
+
+/* webstable3 showcase polish */
+.craving-panel {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255,122,89,.12), transparent 34%),
+    linear-gradient(145deg, #17171d, #101014);
+  box-shadow: 0 14px 34px rgba(0,0,0,.18);
+}
+
+.craving-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.craving-badge {
+  flex: 0 0 auto;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: #ffd9e2;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.wish-hint {
+  margin-top: 12px;
+  padding: 11px 12px;
+  border-radius: 16px;
+  background: rgba(255, 77, 109, .09);
+  border: 1px solid rgba(255, 77, 109, .16);
+  color: #d8d8df;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.wish-hint span {
+  color: #fff;
+  font-weight: 950;
+}
+
+.card {
+  background:
+    radial-gradient(circle at 30% 0%, rgba(255,122,89,.08), transparent 30%),
+    #121217;
+}
+
+.card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,122,89,.18), transparent 32%),
+    linear-gradient(145deg, #241820, #101014);
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,122,89,.18), transparent 32%),
+    linear-gradient(145deg, #241820, #101014);
+}
+
+.card-img-fallback {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  font-size: 68px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,122,89,.22), transparent 34%),
+    linear-gradient(145deg, #281923, #101014);
+}
+
+.card-title-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.recipe-type-dot {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.meta {
+  margin-top: 7px;
+}
+
+.card-body {
+  min-height: 142px;
+}
+
+.icon-btn {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media(max-width:760px){
+  .craving-header {
+    display: block;
+  }
+  .craving-badge {
+    display: inline-block;
+    margin-top: 8px;
+  }
+  .wish-hint {
+    font-size: 13px;
+  }
+  .card-body {
+    min-height: 132px;
+  }
+}
