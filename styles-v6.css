@@ -3,3 +3,11 @@
 .filters {
   display: none !important;
 }
+.chips,
+.filter-row,
+.filter-bar,
+.top-filters,
+.category-filters,
+.quick-filters {
+  display: none !important;
+}
