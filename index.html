@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cozy Foodie</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles-v12safe.css?v=14" />
+  <link rel="stylesheet" href="styles-v13.css?v=13" />
   <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
   <main class="app">
-    <section class="mood-panel">
+    <section class="mood-panel home-only">
       <div>
         <h2>Как ты себя чувствуешь?</h2>
         <p class="muted">Я подберу рецепт не рандомно, а по настроению.</p>
@@ -19,9 +19,9 @@
       <div id="moodResult" class="mood-result hidden"></div>
     </section>
 
-    <section id="dailyPanel" class="daily-panel"></section>
+    <section id="dailyPanel" class="daily-panel home-only"></section>
 
-    <section class="craving-panel">
+    <section class="craving-panel home-only">
       <h2>💭 Чего хочется?</h2>
       <p class="muted">Например: суп, сладкое, сырное, лёгкое, без мяса.</p>
       <div class="craving-row">
@@ -31,7 +31,7 @@
       <div id="cravingResult" class="mini-row"></div>
     </section>
 
-    <section id="smartFilters" class="smart-filters">
+    <section id="smartFilters" class="smart-filters home-only">
       <button class="smart active" data-smart="all">✨ все</button>
       <button class="smart" data-smart="fast">⚡ до 20 мин</button>
       <button class="smart" data-smart="protein">💪 белок</button>
@@ -39,33 +39,19 @@
       <button class="smart" data-smart="comfort">🌙 уют</button>
     </section>
 
-    <section class="top-actions">
+    <section class="top-actions home-only">
       <input id="searchInput" class="search" placeholder="Поиск: курица, паста, сыр, быстро..." />
     </section>
 
-    <section id="categoryRow" class="category-row"></section>
+    <section id="categoryRow" class="category-row home-only"></section>
 
     <section id="homeSection">
-      <section class="hero">
+      <section id="heroSection" class="hero" style="display:block !important;">
         <div class="eyebrow">COZY FOODIE</div>
         <h1>Что едим?</h1>
         <p>Рецепты с граммовками, огнём, юмором и без кулинарного снобизма.</p>
         <button id="randomBtn" class="random">🎲 Мне лень выбирать</button>
       </section>
-      <section style="background:#151519;border:1px solid #2b2b34;border-radius:30px;padding:30px;margin-bottom:18px;">
-  <div style="letter-spacing:.12em;text-transform:uppercase;color:#bdbdc6;font-weight:900;font-size:13px;">
-    COZY FOODIE
-  </div>
-  <h1 style="font-size:56px;line-height:.92;margin:18px 0 12px;color:#f6f6f7;">
-    Что едим?
-  </h1>
-  <p style="font-size:22px;line-height:1.25;margin:0;color:#d2d2d8;">
-    Рецепты с граммовками, огнём, юмором и без кулинарного снобизма.
-  </p>
-  <button id="randomBtn" style="margin-top:24px;border:0;border-radius:18px;background:linear-gradient(135deg,#ff7a59,#ff4d6d);color:white;padding:18px 36px;font-size:20px;font-weight:900;">
-    🎲 Мне лень выбирать
-  </button>
-</section>
 
       <div class="section-head">
         <h2>Рецепты</h2>
@@ -123,6 +109,13 @@
         <textarea id="newSteps" placeholder="Шаги, каждый с новой строки"></textarea>
         <button id="addRecipeBtn" class="primary">Добавить</button>
       </div>
+
+      <div class="import-box">
+        <h3>Импорт JSON</h3>
+        <p class="small">Вставь массив рецептов и нажми импорт.</p>
+        <textarea id="importJson" class="textarea" placeholder='[{"title":"..."}]'></textarea>
+        <button id="importBtn" class="secondary">Импортировать</button>
+      </div>
     </section>
   </main>
 
@@ -140,6 +133,6 @@
     <button class="nav-btn" data-tab="add"><span>➕</span>Добавить</button>
   </nav>
 
-  <script src="app-v12safe.js?v=14"></script>
+  <script src="app-v13.js?v=13"></script>
 </body>
 </html>
