@@ -55,6 +55,22 @@ const foodEmoji = {
   "азия": "🍜", "полезное": "🥗", "быстро": "⚡", "ужин": "🍽️", "суп": "🥣", "сладкое": "🍯"
 };
 
+
+function bindTap(el, handler) {
+  if (!el) return;
+  let touched = false;
+  el.addEventListener("touchend", (e) => {
+    touched = true;
+    e.preventDefault();
+    handler(e);
+    setTimeout(() => { touched = false; }, 450);
+  }, { passive: false });
+  el.addEventListener("click", (e) => {
+    if (touched) return;
+    handler(e);
+  });
+}
+
 function save() {
   localStorage.setItem("cf_favorites_v8", JSON.stringify(favorites));
   localStorage.setItem("cf_shopping_v8", JSON.stringify(shopping));
@@ -155,20 +171,20 @@ function init() {
 }
 
 function bindEvents() {
-  document.getElementById("randomBtn").onclick = () => openRecipe(pickRandom(recipes));
+  bindTap(document.getElementById("randomBtn"), () => openRecipe(pickRandom(recipes)));
   const floatingRandomBtn = document.getElementById("floatingRandomBtn");
-  if (floatingRandomBtn) floatingRandomBtn.onclick = () => openRecipe(pickRandom(recipes));
+  if (floatingRandomBtn) bindTap(floatingRandomBtn, () => openRecipe(pickRandom(recipes)));
   document.getElementById("searchInput").oninput = e => {
     const q = e.target.value.toLowerCase().trim();
     const filtered = filterRecipes(q, currentCategory);
     renderGrid(filtered, "recipesGrid");
     document.getElementById("resultsNote").textContent = `${filtered.length} рецептов`;
   };
-  document.getElementById("closeModal").onclick = closeModal;
+  bindTap(document.getElementById("closeModal"), closeModal);
   document.getElementById("modal").onclick = e => { if (e.target.id === "modal") closeModal(); };
 
   document.querySelectorAll(".nav-btn").forEach(btn => {
-    btn.onclick = () => switchTab(btn.dataset.tab);
+    bindTap(btn, () => switchTab(btn.dataset.tab));
   });
 
   document.addEventListener("click", handleGlobalCardButtons, true);
@@ -354,23 +370,23 @@ function renderGrid(list, targetId) {
   if (!grid) return;
   grid.innerHTML = list.map(cardHtml).join("") || `<p class="muted">Пусто. Еда ушла в отпуск.</p>`;
   grid.querySelectorAll(".card").forEach(card => {
-    card.onclick = e => {
+    bindTap(card, e => {
       if (e.target.closest("button")) return;
       openRecipeById(card.dataset.id);
-    };
+    });
   });
   grid.querySelectorAll(".heart").forEach(btn => {
-    btn.onclick = e => {
+    bindTap(btn, e => {
       e.stopPropagation();
       toggleFavorite(btn.dataset.id);
-    };
+    });
   });
   grid.querySelectorAll(".quick-add").forEach(btn => {
-    btn.onclick = e => {
+    bindTap(btn, e => {
       e.stopPropagation();
       const r = allRecipes.find(x => x.id === btn.dataset.id);
       addIngredientsToShopping(r);
-    };
+    });
   });
 }
 
@@ -782,7 +798,7 @@ window.startTimer = startTimer;
 window.stopTimer = stopTimer;
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js?v=19").catch(() => {});
+  navigator.serviceWorker.register("sw.js?v=20").catch(() => {});
 }
 
 loadRecipes();
