@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#edf2ff"/><circle cx="400" cy="270" r="155" fill="#fff"/><rect x="320" y="190" width="160" height="90" rx="35" fill="#d98b58"/><circle cx="500" cy="300" r="35" fill="#7cc576"/><text x="60" y="90" font-size="52" font-family="Arial">Боул</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200">
+<defs>
+<linearGradient id="g" x1="0" x2="1">
+<stop offset="0%" stop-color="#e6a15c"/>
+<stop offset="100%" stop-color="#18181d"/>
+</linearGradient>
+</defs>
+<rect width="100%" height="100%" fill="url(#g)"/>
+<circle cx="600" cy="420" r="220" fill="rgba(255,255,255,0.08)"/>
+<text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle"
+font-size="220"> 🍗 </text>
+<text x="50%" y="84%" dominant-baseline="middle" text-anchor="middle"
+font-size="62" fill="white" opacity="0.92" font-family="Arial">Cozy Foodie</text>
+</svg>

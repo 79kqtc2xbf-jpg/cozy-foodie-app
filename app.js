@@ -11,3 +11,12 @@ document.querySelectorAll(".quick-wishes button").forEach(btn => {
 });
 
 loadRecipes();
+
+document.addEventListener("error", function(e){
+  const t = e.target;
+  if(t && t.tagName === "IMG"){
+    t.onerror = null;
+    t.src = "images/food/default.svg";
+  }
+}, true);
+
