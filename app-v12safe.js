@@ -536,6 +536,10 @@ function shareRecipe(id) {
 
 function switchTab(tab) {
   currentTab = tab;
+  const hero = document.getElementById("heroSection");
+if (hero) {
+  hero.classList.toggle("hidden", tab !== "home");
+}
   document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
   ["homeSection","favoritesSection","cookAgainSection","fridgeSection","shoppingSection","addSection"].forEach(id => document.getElementById(id).classList.add("hidden"));
   document.querySelector(".mood-panel").classList.toggle("hidden", tab !== "home");
