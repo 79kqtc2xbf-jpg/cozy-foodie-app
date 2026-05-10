@@ -1,4 +1,4 @@
-const CACHE = "cozy-foodie-v13";
+const CACHE = "cozy-foodie-v14";
 self.addEventListener("install", event => {
   self.skipWaiting();
 });

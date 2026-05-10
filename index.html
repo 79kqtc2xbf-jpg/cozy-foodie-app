@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cozy Foodie</title>
+  <title>Комфортная кулинария с Лисой</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles-v13.css?v=13" />
+  <link rel="stylesheet" href="styles-v14.css?v=14" />
   <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
   <main class="app">
-    <section class="mini-hero">
-  <div class="mini-brand">COZY FOODIE</div>
+    <section class="lisa-hero home-only">
+      <div class="lisa-brand-row">
+        <div class="fox-logo" aria-label="Лиса">🦊<span class="fox-tongue"></span></div>
+        <div>
+          <div class="eyebrow">COZY FOODIE</div>
+          <h1>Комфортная кулинария с Лисой</h1>
+          <p>Рецепты с граммовками, огнём, юмором и без кулинарного снобизма.</p>
+        </div>
+      </div>
+      <button id="randomBtn" class="hidden-random" type="button">🎲 Мне лень выбирать</button>
+    </section>
 
-  <div class="mini-hero-row">
-    <div>
-      <h1>Что едим?</h1>
-      <p>Без кулинарного кризиса.</p>
-    </div>
-
-    <button id="randomBtn" class="mini-random">
-      🎲 Мне лень выбирать
-    </button>
-  </div>
-</section>
     <section class="mood-panel home-only">
       <div>
         <h2>Как ты себя чувствуешь?</h2>
@@ -60,13 +58,6 @@
     <section id="categoryRow" class="category-row home-only"></section>
 
     <section id="homeSection">
-      <section id="heroSection" class="hero" style="display:block !important;">
-        <div class="eyebrow">COZY FOODIE</div>
-        <h1>Что едим?</h1>
-        <p>Рецепты с граммовками, огнём, юмором и без кулинарного снобизма.</p>
-        <button id="randomBtn" class="random">🎲 Мне лень выбирать</button>
-      </section>
-
       <div class="section-head">
         <h2>Рецепты</h2>
         <p id="resultsNote" class="results-note"></p>
@@ -133,6 +124,12 @@
     </section>
   </main>
 
+  <button id="floatingRandomBtn" class="floating-dice" type="button" aria-label="Случайный рецепт">
+    <span class="dice-main">🎲</span>
+    <span class="dice-pop dice-one">⚂</span>
+    <span class="dice-pop dice-two">⚄</span>
+  </button>
+
   <div id="modal" class="modal">
     <button id="closeModal" class="close">×</button>
     <div id="modalInner" class="modal-card"></div>
@@ -147,6 +144,6 @@
     <button class="nav-btn" data-tab="add"><span>➕</span>Добавить</button>
   </nav>
 
-  <script src="app-v13.js?v=13"></script>
+  <script src="app-v14.js?v=14"></script>
 </body>
 </html>
