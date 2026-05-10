@@ -11,3 +11,6 @@
 .quick-filters {
   display: none !important;
 }
+.search-section + div {
+  display: none !important;
+}
