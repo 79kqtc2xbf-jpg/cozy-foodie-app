@@ -790,3 +790,66 @@ button, input, textarea { font: inherit; }
 .home-only.hidden {
   display: none !important;
 }
+.mini-hero{
+  margin-bottom:20px;
+  padding:24px;
+  border-radius:28px;
+  background:linear-gradient(180deg,#17171d,#111114);
+  border:1px solid #262630;
+}
+
+.mini-brand{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.22em;
+  color:#b8b8c7;
+  margin-bottom:18px;
+}
+
+.mini-hero-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.mini-hero h1{
+  margin:0;
+  font-size:64px;
+  line-height:.92;
+  color:#f5f5f7;
+}
+
+.mini-hero p{
+  margin-top:10px;
+  color:#b9b9c8;
+  font-size:20px;
+}
+
+.mini-random{
+  border:none;
+  border-radius:22px;
+  padding:18px 28px;
+  background:linear-gradient(135deg,#ff7a59,#ff4d6d);
+  color:white;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(255,90,120,.25);
+}
+
+@media(max-width:900px){
+
+  .mini-hero-row{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .mini-hero h1{
+    font-size:48px;
+  }
+
+  .mini-random{
+    width:100%;
+  }
+}
