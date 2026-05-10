@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Комфортная кулинария с Лисой</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css?v=21" />
+  <link rel="stylesheet" href="styles.css?v=22lite" />
   <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
   <main class="app">
+    <section class="ios-lite-header">
+      <div>
+        <div class="eyebrow">COZY FOODIE</div>
+        <h1>Комфортная кулинария с Лисой</h1>
+      </div>
+      <button id="liteRandomBtn" class="ios-lite-random" type="button">🎲 Рандом</button>
+    </section>
     <section class="lisa-hero home-only">
       <div class="lisa-brand-row">
         <div class="fox-logo" aria-label="Лиса">🦊<span class="fox-tongue"></span></div>
@@ -127,13 +134,6 @@
     </section>
   </main>
 
-  <button id="floatingRandomBtn" class="floating-dice" type="button" aria-label="Случайный рецепт">
-    <span class="random-label">рандом</span>
-    <span class="dice-main">🎲</span>
-    <span class="dice-pop dice-one">⚂</span>
-    <span class="dice-pop dice-two">⚄</span>
-  </button>
-
   <div id="modal" class="modal">
     <button id="closeModal" class="close">×</button>
     <div id="modalInner" class="modal-card"></div>
@@ -148,34 +148,6 @@
     <button class="nav-btn" data-tab="add"><span>➕</span>Добавить</button>
   </nav>
 
-  <script src="app.js?v=21"></script>
-
-  <script>
-    // v21 iOS emergency tap handler
-    document.addEventListener('pointerup', function(e) {
-      const nav = e.target.closest && e.target.closest('.nav-btn');
-      if (nav && typeof switchTab === 'function') {
-        e.preventDefault();
-        switchTab(nav.dataset.tab);
-        return;
-      }
-
-      const card = e.target.closest && e.target.closest('.card');
-      if (card && !e.target.closest('button') && typeof openRecipeById === 'function') {
-        e.preventDefault();
-        openRecipeById(card.dataset.id);
-        return;
-      }
-
-      const cart = e.target.closest && e.target.closest('.quick-add');
-      if (cart) {
-        e.preventDefault();
-        e.stopPropagation();
-        const evt = new MouseEvent('click', { bubbles: true, cancelable: true });
-        cart.dispatchEvent(evt);
-      }
-    }, { passive: false });
-  </script>
-
+  <script src="app.js?v=22lite"></script>
 </body>
 </html>

@@ -1199,47 +1199,167 @@ button, input, textarea { font: inherit; }
 }
 
 
-/* v21 iOS nuclear stability fix */
+/* v22 iPhone Lite: remove heavy layers and make taps stable */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html, body {
-  -webkit-text-size-adjust: 100%;
   touch-action: manipulation;
+  overscroll-behavior: auto;
 }
 
 body {
-  padding-bottom: calc(132px + env(safe-area-inset-bottom)) !important;
+  padding-bottom: 118px !important;
+}
+
+.ios-lite-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #151519;
+  border: 1px solid #2b2b34;
+  border-radius: 24px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.ios-lite-header h1 {
+  margin: 6px 0 0;
+  font-size: clamp(24px, 6vw, 42px);
+  line-height: 1;
+}
+
+.ios-lite-random {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ff7a59, #ff4d6d);
+  color: #fff;
+  padding: 14px 16px;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.floating-dice,
+.dice-pop,
+.random-label {
+  display: none !important;
+}
+
+.card::before,
+.card::after,
+.hero::before,
+.hero::after,
+.lisa-hero::before,
+.lisa-hero::after,
+.mood-panel::before,
+.mood-panel::after,
+.daily-panel::before,
+.daily-panel::after {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+.card,
+.card *,
+.nav-btn,
+.nav-btn *,
+button,
+input,
+textarea,
+.modal,
+.modal *,
+.bottom-nav,
+.bottom-nav * {
+  pointer-events: auto !important;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.heart,
+.quick-add,
+.tiny-btn {
+  z-index: 5 !important;
+  position: absolute !important;
 }
 
 .bottom-nav {
   position: fixed !important;
-  z-index: 2147483000 !important;
+  left: 10px !important;
+  right: 10px !important;
   bottom: max(10px, env(safe-area-inset-bottom)) !important;
-  pointer-events: auto !important;
-  transform: translateX(-50%) translateZ(0) !important;
-  -webkit-transform: translateX(-50%) translateZ(0) !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  width: auto !important;
+  z-index: 9999 !important;
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 4px !important;
+  padding: 7px !important;
+  border-radius: 22px !important;
+  background: #151519 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-.nav-btn,
-.nav-btn *,
-.card,
-.card *,
-button {
-  pointer-events: auto;
+.nav-btn {
+  min-width: 0 !important;
+  min-height: 52px !important;
+  padding: 6px 2px !important;
+  border-radius: 16px !important;
+  font-size: 10px !important;
 }
 
-.card::before,
-.card::after {
-  pointer-events: none !important;
-}
-
-.floating-dice {
-  z-index: 2147482000 !important;
-  bottom: calc(104px + env(safe-area-inset-bottom)) !important;
+.nav-btn span {
+  font-size: 18px !important;
 }
 
 .modal {
-  z-index: 2147483100 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: #0b0b0d !important;
+  z-index: 10000 !important;
+}
+
+.modal-card {
+  border-radius: 0 !important;
+  min-height: 100vh !important;
 }
 
 .close {
-  z-index: 2147483200 !important;
+  z-index: 10001 !important;
+}
+
+@media(max-width: 760px) {
+  .app {
+    padding: 12px !important;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .card h3 {
+    font-size: 17px !important;
+  }
+
+  .card-body {
+    padding: 12px !important;
+  }
+
+  .ios-lite-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ios-lite-random {
+    width: 100%;
+  }
 }

@@ -772,7 +772,6 @@ function stopTimer() {
 }
 
 
-window.switchTab = switchTab;
 window.openRecipeById = openRecipeById;
 window.toggleFavorite = toggleFavorite;
 window.addIngredientsToShoppingById = addIngredientsToShoppingById;
@@ -784,8 +783,79 @@ window.stopTimer = stopTimer;
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(reg => reg.unregister()));
-  caches && caches.keys && caches.keys().then(keys => keys.forEach(key => caches.delete(key)));
 });
 }
 
 loadRecipes();
+
+window.switchTab = switchTab;
+window.closeModal = closeModal;
+window.addIngredientsToShopping = addIngredientsToShopping;
+
+// v22 iPhone Lite delegated handlers
+(function () {
+  function safeClosest(target, selector) {
+    return target && target.closest ? target.closest(selector) : null;
+  }
+
+  function handleTap(e) {
+    const nav = safeClosest(e.target, ".nav-btn");
+    if (nav && typeof switchTab === "function") {
+      e.preventDefault();
+      e.stopPropagation();
+      switchTab(nav.dataset.tab);
+      return;
+    }
+
+    const liteRandom = safeClosest(e.target, "#liteRandomBtn");
+    if (liteRandom && typeof openRecipe === "function" && typeof pickRandom === "function") {
+      e.preventDefault();
+      e.stopPropagation();
+      openRecipe(pickRandom(recipes));
+      return;
+    }
+
+    const close = safeClosest(e.target, "#closeModal");
+    if (close && typeof closeModal === "function") {
+      e.preventDefault();
+      e.stopPropagation();
+      closeModal();
+      return;
+    }
+
+    const cart = safeClosest(e.target, ".quick-add");
+    if (cart && typeof addIngredientsToShopping === "function") {
+      e.preventDefault();
+      e.stopPropagation();
+      const r = allRecipes.find(x => x.id === cart.dataset.id);
+      addIngredientsToShopping(r);
+      return;
+    }
+
+    const heart = safeClosest(e.target, ".heart");
+    if (heart && typeof toggleFavorite === "function") {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleFavorite(heart.dataset.id);
+      return;
+    }
+
+    const card = safeClosest(e.target, ".card");
+    if (card && !safeClosest(e.target, "button") && typeof openRecipeById === "function") {
+      e.preventDefault();
+      e.stopPropagation();
+      openRecipeById(card.dataset.id);
+      return;
+    }
+  }
+
+  document.addEventListener("click", handleTap, true);
+  document.addEventListener("touchend", handleTap, { passive: false, capture: true });
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(reg => reg.unregister()));
+  }
+  if (window.caches && caches.keys) {
+    caches.keys().then(keys => keys.forEach(key => caches.delete(key)));
+  }
+})();
