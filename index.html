@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Комфортная кулинария с Лисой</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="stylesheet" href="styles.css?v=21" />
   <meta name="theme-color" content="#0b0b0d" />
 </head>
 <body>
@@ -148,6 +148,34 @@
     <button class="nav-btn" data-tab="add"><span>➕</span>Добавить</button>
   </nav>
 
-  <script src="app.js?v=20"></script>
+  <script src="app.js?v=21"></script>
+
+  <script>
+    // v21 iOS emergency tap handler
+    document.addEventListener('pointerup', function(e) {
+      const nav = e.target.closest && e.target.closest('.nav-btn');
+      if (nav && typeof switchTab === 'function') {
+        e.preventDefault();
+        switchTab(nav.dataset.tab);
+        return;
+      }
+
+      const card = e.target.closest && e.target.closest('.card');
+      if (card && !e.target.closest('button') && typeof openRecipeById === 'function') {
+        e.preventDefault();
+        openRecipeById(card.dataset.id);
+        return;
+      }
+
+      const cart = e.target.closest && e.target.closest('.quick-add');
+      if (cart) {
+        e.preventDefault();
+        e.stopPropagation();
+        const evt = new MouseEvent('click', { bubbles: true, cancelable: true });
+        cart.dispatchEvent(evt);
+      }
+    }, { passive: false });
+  </script>
+
 </body>
 </html>

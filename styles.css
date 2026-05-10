@@ -1199,91 +1199,47 @@ button, input, textarea { font: inherit; }
 }
 
 
-/* v20 mobile touch / pointer-events fix */
+/* v21 iOS nuclear stability fix */
 html, body {
+  -webkit-text-size-adjust: 100%;
   touch-action: manipulation;
-  overscroll-behavior-y: none;
 }
 
-.app {
-  position: relative;
-  z-index: 1;
-}
-
-.card,
-.cat-card,
-.mini-card,
-.nav-btn,
-.heart,
-.tiny-btn,
-.quick-add,
-.floating-dice,
-.modal-float-cart,
-button {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  pointer-events: auto !important;
-}
-
-.card::after,
-.card::before,
-.lisa-hero::after,
-.hero::after,
-.daily-panel::after,
-.mood-panel::after,
-.craving-panel::after {
-  pointer-events: none !important;
-}
-
-.card img,
-.card-body,
-.modal-img,
-.modal-content {
-  pointer-events: auto;
+body {
+  padding-bottom: calc(132px + env(safe-area-inset-bottom)) !important;
 }
 
 .bottom-nav {
-  z-index: 99999 !important;
+  position: fixed !important;
+  z-index: 2147483000 !important;
+  bottom: max(10px, env(safe-area-inset-bottom)) !important;
   pointer-events: auto !important;
-  transform: translateX(-50%) translateZ(0);
-  -webkit-transform: translateX(-50%) translateZ(0);
+  transform: translateX(-50%) translateZ(0) !important;
+  -webkit-transform: translateX(-50%) translateZ(0) !important;
 }
 
-.bottom-nav * {
-  pointer-events: auto !important;
+.nav-btn,
+.nav-btn *,
+.card,
+.card *,
+button {
+  pointer-events: auto;
+}
+
+.card::before,
+.card::after {
+  pointer-events: none !important;
 }
 
 .floating-dice {
-  z-index: 90000 !important;
+  z-index: 2147482000 !important;
+  bottom: calc(104px + env(safe-area-inset-bottom)) !important;
 }
 
 .modal {
-  z-index: 100000 !important;
+  z-index: 2147483100 !important;
 }
 
 .close {
-  z-index: 100002 !important;
-}
-
-.modal-card {
-  position: relative;
-  z-index: 100001 !important;
-}
-
-@media (max-width: 760px) {
-  body {
-    padding-bottom: 124px !important;
-  }
-
-  .bottom-nav {
-    bottom: max(10px, env(safe-area-inset-bottom)) !important;
-  }
-
-  .nav-btn {
-    min-height: 54px;
-  }
-
-  .floating-dice {
-    bottom: calc(96px + env(safe-area-inset-bottom)) !important;
-  }
+  z-index: 2147483200 !important;
 }
