@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0b0d" />
   <title>Cozy Foodie</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json?v=3" />
+  <link rel="stylesheet" href="styles-v3.css?v=3" />
 </head>
 <body>
   <main class="app-shell">
     <section class="hero">
-      <div>
-        <p class="eyebrow">уютный рандомайзер еды</p>
-        <h1>Cozy Foodie</h1>
-        <p class="subtitle">Нажми кнопку — и приложение решит, что готовить. Без экзистенциального кризиса у холодильника.</p>
-      </div>
-      <button id="randomBtn" class="primary-btn">🎲 Случайный рецепт</button>
+      <p class="eyebrow">уютный рандомайзер еды</p>
+      <h1>Cozy Foodie</h1>
+      <p class="subtitle">Нажми кнопку — и приложение решит, что готовить. Без экзистенциального кризиса у холодильника.</p>
+      <button id="randomBtn" class="primary-btn" type="button">🎲 Случайный рецепт</button>
     </section>
 
     <section class="toolbar">
@@ -27,30 +25,27 @@
     <section id="recipesGrid" class="recipes-grid"></section>
   </main>
 
-  <section id="recipeModal" class="modal hidden" aria-hidden="true">
+  <section id="recipeModal" class="modal" aria-hidden="true" hidden>
     <div class="modal-backdrop" data-close></div>
     <article class="modal-card">
-      <button class="close-btn" data-close>×</button>
+      <button class="close-btn" data-close type="button">×</button>
       <img id="modalImage" class="modal-image" alt="" />
       <div class="modal-body">
         <div class="modal-headline">
           <h2 id="modalTitle"></h2>
-          <button id="favoriteBtn" class="favorite-btn">♡</button>
+          <button id="favoriteBtn" class="favorite-btn" type="button">♡</button>
         </div>
         <p id="modalMeta" class="modal-meta"></p>
         <div id="modalTags" class="tags"></div>
-
         <h3>Ингредиенты</h3>
         <ul id="modalIngredients" class="clean-list"></ul>
-
         <h3>Как готовить</h3>
         <ol id="modalSteps" class="steps-list"></ol>
-
         <div id="modalTips" class="tips"></div>
       </div>
     </article>
   </section>
 
-  <script src="app.js"></script>
+  <script src="app-v3.js?v=3"></script>
 </body>
 </html>
